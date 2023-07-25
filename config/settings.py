@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     
     'post',
 
-    'embed_video'
+    'embed_video',
     'accounts',
 ]
 
