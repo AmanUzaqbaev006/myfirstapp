@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="bg-black">
+
+
+  <h1 style="font-size: 40px; margin-left: 30px;" class="p-2 text-white">
+    Добавить фильм
+  </h1>
+
+
+
+  <div class="container  text-black">
+      <form action="" method="post" enctype="multipart/form-data">
+
+          {% csrf_token %}
+          {{ form.as_p }}
+
+       
+          <input class="w3-button bg-blue w3-round-xlarge w3-teal " type="submit" name="Submit" value="отправит">
+
+      </form>
+  </div>
+
+</div> 
+
+
+{% endblock %}
+

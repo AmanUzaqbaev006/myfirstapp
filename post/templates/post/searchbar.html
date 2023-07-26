@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+ 
+
+        
+            
+
+                {% if posti %}
+    
+                    {% for post in posti %}
+                    <link rel="stylesheet" href="style.css">
+<section class=" bg-black ">
+  <div class="flex  items-center pb-5 border-b-2 border-gray-800 mb-5">
+            
+  </div>
+ 
+<div class="containers  ">
+  {% for post in posti %}
+    <div class="boxs">
+      <div class="imgBx">
+        <img  src="{{ post.image.url }}">
+       
+      </div>
+      <div class="contents text-blue-500">
+        <div>
+          <h2> 
+            <a href="{% url 'home_detail' post.slug %}">
+                {{ post.first_name }}
+            </a>
+          </h2>
+          <p>
+          </p>
+        </div>
+      </div>
+    </div>
+    
+   {% endfor %}
+  </div>
+                    {% endfor %}
+        
+                {% else %}
+                 
+                     <section class="text-gray-400 bg-black body-font">
+                      <div class="container px-5 py-24 mx-auto">
+                        <div class="flex flex-col text-center w-full mb-12">
+                          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Не найдено</h1>
+                         
+                      
+                      </div>
+                      
+                    </section>
+                {% endif %}
+              
+
+{% endblock %}

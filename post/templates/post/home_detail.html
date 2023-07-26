@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+
+{% load embed_video_tags %}
+
+{% block title %}
+    details
+{% endblock %}
+
+{% block content %}
+    <section class="text-gray-400 bg-black body-font overflow-hidden">
+         <div class="container px-5 py-24 mx-auto">
+           
+                <div class="lg:w-4/5 mx-auto flex flex-wrap  sm:text-2xl text-2xl font-medium title-font mb-2 text-gray-900">
+                    <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="{{ post.image.url }}">
+                    <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                    <p class="leading-relaxed text-white">{{ post.first_name }}</p>
+                    <p class="leading-relaxed text-white">Время : {{ post.time_one }}</p>
+                    <p class="leading-relaxed text-white">Режиссер : {{ post.time_two }}</p>
+                    <p class="leading-relaxed text-white">Кинокомпания : {{ post.time_on }}</p>
+                    <p class="leading-relaxed text-white">Языки : {{ post.time }}</p>
+                    <p class="leading-relaxed text-white">Жанр : {{ post.time_of }}</p>
+                    <p class="leading-relaxed text-white">Бюджет : {{ post.time_ofe }}</p>
+                    <p class="leading-relaxed text-white">Страна : {{ post.time_ofu }}</p>
+                    <p class="leading-relaxed text-white">{{ post.last_name }}</p>
+                    
+                </div>
+
+
+           
+               
+     
+        </div>
+          
+        <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-800 mb-5">
+                        
+        </div>
+        <p class="leading-relaxed">{{ post.text }}</p>
+
+        <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-800 mb-5">
+            
+        </div>
+        
+            <iframe width="1200" height="600" src="{{ post.video }}" title="Как добавить видео с YouTube в Django" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        {% if article.video %}
+        {% endif %}
+
+        <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-800 ">
+            
+        </div>
+
+
+        <div class="col-md-4">
+            <div style="margin: 5px ">
+           
+                <button class="w3-button w3-round-xlarge w3-teal"><a class="btn btn-primary" href="{% url 'add-comment' post.slug %}"> Добавить комментарий </a></button>
+               <br>
+        
+           
+               {% if not post.comments.all %}
+   
+                
+                   <h1 class="md:text-3xl text-2xl font-medium title-font text-white">0 коммент</h1>
+   
+               {% else %}
+   
+                   {% for comment in post.comments.all %}
+
+                        <div class="container px-0 mx-auto sm:px-5">
+                    
+                            
+                    
+                            <div
+                                class="flex-col w-full py-4 mx-auto mt-3 bg-blue border-b-2 border-r-2 border-blue-800 sm:px-4 sm:py-4 md:px-4 sm:rounded-lg sm:shadow-sm md:w-2/3">
+                                <div class="flex flex-row  md-10">
+                                    <img src="https://icons.iconarchive.com/icons/diversity-avatars/avatars/256/charlie-chaplin-icon.png" class="relative rounded-lg -top-1 -mb-3 bg-black border h-20 w-20" alt="" loading="lazy">
+                                    <div class="flex-col mt-1">
+                                        <div class="flex items-center flex-1 text-blue-500 px-4 font-bold leading-tight"> {{ comment.commenter_name }}
+                                            <span class="ml-2 text-xs font-normal text-blue-500">{{ comment.date_added }}</span>
+                                        </div>
+                                        <div class="flex-1 px-2 ml-2 text-sm text-white font-medium leading-loose ">{{ comment.comment_body }}
+                                        </div>
+                                        <button class="inline-flex items-center px-1 pt-2 ml-1 flex-column">
+                                            <svg class="w-5 h-5 ml-2 text-gray-600 cursor-pointer fill-current hover:text-gray-900"
+                                                viewBox="0 0 95 78" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M29.58 0c1.53.064 2.88 1.47 2.879 3v11.31c19.841.769 34.384 8.902 41.247 20.464 7.212 12.15 5.505 27.83-6.384 40.273-.987 1.088-2.82 1.274-4.005.405-1.186-.868-1.559-2.67-.814-3.936 4.986-9.075 2.985-18.092-3.13-24.214-5.775-5.78-15.377-8.782-26.914-5.53V53.99c-.01 1.167-.769 2.294-1.848 2.744-1.08.45-2.416.195-3.253-.62L.85 30.119c-1.146-1.124-1.131-3.205.032-4.312L27.389.812c.703-.579 1.49-.703 2.19-.812zm-3.13 9.935L7.297 27.994l19.153 18.84v-7.342c-.002-1.244.856-2.442 2.034-2.844 14.307-4.882 27.323-1.394 35.145 6.437 3.985 3.989 6.581 9.143 7.355 14.715 2.14-6.959 1.157-13.902-2.441-19.964-5.89-9.92-19.251-17.684-39.089-17.684-1.573 0-3.004-1.429-3.004-3V9.936z"
+                                                    fill-rule="nonzero" />
+                                            </svg>
+                                        </button>
+                                        <button class="inline-flex items-center px-1 -ml-1 flex-column">
+                                            <svg class="w-5 h-5 text-gray-600 cursor-pointer hover:text-gray-700" fill="none"
+                                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+  
+
+
+
+
+
+                    
+                      
+                       
+                       
+   
+                   {% endfor %}
+   
+               {% endif %}
+   
+       
+   
+            </div>
+        </div>
+
+
+
+    
+        </div>
+    
+
+        
+      
+      
+        <hr id="about">
+        
+        
+        
+
+       
+    </section>
+{% endblock %}
