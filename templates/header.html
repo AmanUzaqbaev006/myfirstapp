@@ -32,12 +32,14 @@
                 
 
          {% else %} 
-              <li class="nav-item m-3">
-                <a href="{% url 'register' %}" class="btn btn-success m-1">Register</a>
-              </li>
+         <p class="w3-button   w3-hover-red w3-round-xlarge w3-teal"><a class="btn text-black btn-primary" >        <a href="{% url 'register' %}" class="btn btn-success m-1">Register</a></a></p>
+              
+            
 
               <li class="nav-item m-6">
-                <a href="{% url 'login' %}" class="btn btn-primary m-1">Login</a>
+                <p class="w3-button   w3-hover-red w3-round-xlarge w3-teal"><a class="btn text-black btn-primary" >                  <a href="{% url 'login' %}" class="btn btn-primary m-1">Login</a></a></p>
+              
+    
               </li>
           
       {% endif %}
